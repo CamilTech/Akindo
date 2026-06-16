@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login com API ReqRes</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        
+        <div class="left-side">
+            <div class="welcome-text">Bem-Vindo!</div>
+            
+            <div class="carousel" id="carousel">
+                <img src="../img/manga4teste.png" alt="Imagem 1">
+                <img src="../img/manga3teste.png" alt="Imagem 2">
+                <img src="../img/manga2teste.png" alt="Imagem 3">
+                <img src="../img/manga1teste.png" alt="Imagem 4">
+                
+                
+            </div>
+
+            <div class="carousel-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                
+                
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="login-form">
+                <h2>Login</h2>
+
+                <button class="buttton-google" id="loginGoogle">
+                    <p>Entrar com Google</p>
+                    <img src="../img/glugou-icon.png" alt="Google Logo" width="20">
+                </button>
+                    <img id="foto" width="60">
+                    <p id="nome"></p>
+                
+
+
+                <form id="loginForm">
+                    <div class="input-group">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">Email</label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="password" required placeholder=" ">
+                        <label for="password">Senha</label>
+                    </div>
+
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
+
+                <div id="feedbackMessage" class="message"></div>
+
+                <p class="signup-text">Não tem uma conta? <a href="#">Inscreva-se</a></p>
+            </div>
+        </div>
+
+    </div>
+
+<script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
