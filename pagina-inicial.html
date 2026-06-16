@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffd700">
+    <title>Projeto Javascript</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="css/pintura.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img class="logo-img" src="" alt="Logo">
+        </div>
+
+        <div class="search-bar">
+            <div class="search-input-wrapper">
+                <input type="search" id="inputBusca" placeholder="O que está buscando hoje?" aria-label="Busca">
+                <button type="button" id="btnLimpar" class="clear-btn" aria-label="Limpar busca">&times;</button>
+            </div>
+            <button type="button" id="btnBusca" class="search-btn">
+                <span class="icon-lupa"></span>
+                <span class="text-buscar">buscar</span>
+            </button>
+        </div>
+
+        <nav class="main-nav">
+            <ul class="menu-list">
+                <li><img src="img/casalocapreta.png" alt="Logo"></li>
+                <li><img src="img/instagram_icon.png" alt="Logo"></li>
+            </ul>
+            <button class="botaomenu"><strong>Menu</strong></button>
+        </nav>
+    </header>
+
+    <div class="page-links">
+        <a href="ecommerce.html">Home</a>
+        <a href="index.html">Login</a>
+        <a href="loading-fashion.html">Loading</a>
+    </div>
+
+    <section class="container">
+        <div class="list">
+
+            <div class="item active">
+                <div class="car-img">
+                    <img src="Contornar e pintar objeto de amarelo/flor.png" alt="imagem carro">
+                </div>
+                <div class="content">
+                    <h2>Flor colorida</h2>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste ipsa expedita commodi esse quaerat a iure, voluptatum molestias explicabo, id cumque illum voluptate quod architecto? Doloribus quam nisi modi laudantium.
+                    </p>
+                    <button class="information">Saiba mais</button>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="car-img">
+                    <img src="Contornar e pintar objeto de amarelo/malhabranca.png" alt="imagem carro">
+                </div>
+                <div class="content">
+                    <h2>Malha Branca</h2>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste ipsa expedita commodi esse quaerat a iure, voluptatum molestias explicabo, id cumque illum voluptate quod architecto? Doloribus quam nisi modi laudantium.
+                    </p>
+                    <button class="information">Saiba mais</button>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="car-img">
+                    <img src="Contornar e pintar objeto de amarelo/coloridinhas.png" alt="imagem carro">
+                </div>
+                <div class="content">
+                    <h2>Peixes coloridos</h2>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste ipsa expedita commodi esse quaerat a iure, voluptatum molestias explicabo, id cumque illum voluptate quod architecto? Doloribus quam nisi modi laudantium.
+                    </p>
+                    <button class="information">Saiba mais</button>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="car-img">
+                    <img src="Contornar e pintar objeto de amarelo/boxinhos.png" alt="imagem carro">
+                </div>
+                <div class="content">
+                    <h2>Estampa</h2>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste ipsa expedita commodi esse quaerat a iure, voluptatum molestias explicabo, id cumque illum voluptate quod architecto? Doloribus quam nisi modi laudantium.
+                    </p>
+                    <button class="information">Saiba mais</button>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="car-img">
+                    <img src="Contornar e pintar objeto de amarelo/mlaha curtahenly.png" alt="imagem carro">
+                </div>
+                <div class="content">
+                    <h2>malha preta</h2>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste ipsa expedita commodi esse quaerat a iure, voluptatum molestias explicabo, id cumque illum voluptate quod architecto? Doloribus quam nisi modi laudantium.
+                    </p>
+                    <button class="information">Saiba mais</button>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="car-img">
+                    <img src="Contornar e pintar objeto de amarelo/malhavermelha.png" alt="imagem carro">
+                </div>
+                <div class="content">
+                    <h2>malha vermelha</h2>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste ipsa expedita commodi esse quaerat a iure, voluptatum molestias explicabo, id cumque illum voluptate quod architecto? Doloribus quam nisi modi laudantium.
+                    </p>
+                    <button class="information">Saiba mais</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="arrows">
+            <button id="prev"><img src="img/arrow.png" alt="seta esquerda"></button>
+            <button id="next"><img src="img/arrow.png" alt="seta direita"></button>
+        </div>
+        <div class="indicadores">
+            
+            <ul>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="post-carousel">
+        <div class="area-personagens">
+            <p class="titulo-personagens">Escolha Qual das marcas deseja entrar</p>
+            <div class="area-balotas">
+                <div class="frame-img"> <img class="imgpersonagem" src="img/logobolinha1.png" alt="">
+                    <div class="texto-fundo">
+                        <div class="container-botao">
+                            <button class="botao-personagem">Tsomu</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="frame-img"> <img class="imgpersonagem" src="img/logobolinha2.png" alt="">
+                    <div class="texto-fundo">
+                        <div class="container-botao">
+                            <button class="botao-personagem">Jro</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="frame-img"> <img class="imgpersonagem" src="img/logobolinha3.png" alt="">
+                    <div class="texto-fundo">
+                        <div class="container-botao">
+                            <button class="botao-personagem">Yusuke</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="frame-img"> <img class="imgpersonagem" src="img/logobolinha4.png" alt="">
+                    <div class="texto-fundo">
+                        <div class="container-botao">
+                            <button class="botao-personagem">Riza</button>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- BLOCO DA HAPPY BERRY CORRIGIDO: Todo o conteúdo agora é um link funcional -->
+                <div class="frame-img"> 
+                    <a href="loading-fashion.html" style="text-decoration: none; width: 100%; height: 100%; display: block; color: inherit;">
+                        <img class="imgpersonagem" src="img/Happy_berryfundo.png" alt="Happy Berry">
+                        <div class="texto-fundo">
+                            <div class="container-botao">
+                                <button class="botao-personagem">Happy Berry</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="bloco-vitrine estilo-magenta">
+        <div class="sobre-container">
+            <article class="sobre-texto">
+                <div class="explicacao-conteudo borda-verde">
+                    <span class="subtitulo-marca">Criatividade & Fashion</span>
+                    <h2>HAPPY BERRY</h2>
+                    <p class="paragrafo-historia">
+                      A HAPPY BERRY é inspirada em Mikako Kózuka, personagem de Gokinjo Monogatari. Mikako é uma personagem muito intuitiva e forte, além de muito criativa e boa em criar seu próprio estilo de roupa, combinando charme e atitude.
+                    </p>
+                    <p class="paragrafo-historia">
+                       O objetivo dessa empresa são os acessórios e as roupas principalmente do gênero feminino no estilo lolita. A ideia é que as pessoas possam comprar um estilo de roupa específico na HAPPY BERRY e se divertir enquanto ficam mais confortáveis e estilosas, como a Mikako faz no anime.
+                    </p>
+                </div>
+            </article>
+            <div class="sobre-imagem-wrapper wrapper-centro">
+                <div class="container-parallax paralax0">
+                    <div class="camada-imagem imagem-frente"></div>
+                    <div class="camada-imagem imagem-fundo"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main class="bloco-vitrine estilo-roxo">
+        <div class="sobre-container">
+            <div class="sobre-imagem-wrapper wrapper-esquerda">
+                <div class="container-parallax paralax1">
+                    <div class="camada-imagem imagem-frente"></div>
+                    <div class="camada-imagem imagem-fundo"></div>
+                </div>
+            </div>
+            <article class="sobre-texto">
+                <div class="explicacao-conteudo borda-roxo">
+                    <span class="subtitulo-marca">Conceito Underground</span>
+                    <h2>Garoto do jogo</h2>
+                    <p class="paragrafo-historia">
+                       O garoto chamado Tsutomu Ashihara é a inspiração deste bloco. Tsutomu é o namorado da protagonista Mikako em Gokinjo Monogatari e busca se divertir criando jogos com estilo retrô e atitude arcade.
+                    </p>
+                    <p class="paragrafo-historia">
+                       Os jogos mais retrô arcades, vividos e retrazidos de volta dos anos 80 e 90, são Pokémon, Sonic, Zelda, Mario e Pac-Man. Mas não são só esses: a empresa também busca trazer jogadores mais jovens com jogos novos que possuem o mesmo espírito arcade.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <main class="bloco-vitrine estilo-escuro">
+        <div class="sobre-container">
+            <article class="sobre-texto">
+                <div class="explicacao-conteudo borda-verde">
+                    <span class="subtitulo-marca">A Essência da Velocidade</span>
+                    <h2>Baby punk</h2>
+                    <p class="paragrafo-historia">
+                       A marca Baby Punk é inspirada na personagem Momoko Nishino de Gokinjo Monogatari. Momoko traz a essência das roupas do estilo alternativo e este bloco é uma homenagem à estética punk, onde a aggressiveness visual se mistura com funcionalidade irônica e ousadia.
+                    </p>
+                    <p class="paragrafo-historia">
+                        O vermelho característico dá lugar a uma apresentação integrada ao site, focando na silhueta e na presença brutal que esse ícone projeta. A transição circular revela detalhes ocultos, simbolizando a dualidade entre o caos e a ordem presentes no estilo punk.
+                    </p>
+                </div>
+            </article>
+            <div class="sobre-imagem-wrapper">
+                <div class="container-parallax paralax2">
+                    <div class="camada-imagem imagem-frente"></div>
+                    <div class="camada-imagem imagem-fundo"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main class="bloco-vitrine estilo-claro">
+        <div class="sobre-container">
+            <div class="sobre-imagem-wrapper wrapper-esquerda">
+                <div class="container-parallax paralax3">
+                    <div class="camada-imagem imagem-frente"></div>
+                    <div class="camada-imagem imagem-fundo"></div>
+                </div>
+            </div>
+            <article class="sobre-texto">
+                <div class="explicacao-conteudo borda-preta">
+                    <span class="subtitulo-marca">Identidade & Identificação</span>
+                    <h2>Namorado da protagonista</h2>
+                    <p class="paragrafo-historia">
+                      Para a empresa() procuramos a arte abstrata, e para isso nos inspiramos no namorado da protagonista do anime, ele é um personagem que tem uma personalidade mais calma, e mais serena, então a arte abstrata se encaixa muito bem com ele, já que a arte abstrata tem como objetivo transmitir sentimentos e sensações através de formas e cores, sem necessariamente representar objetos ou cenas do mundo real. alem de que suas cores tem como objetivo transmitir algo mais natural, já que suas artes trabaçham com isso.
+                    </p>
+                    <p class="paragrafo-historia">
+                       A empresa sempre varia, mas está sempre utilizando objetos recicláveis, seja para algo mais parecido com brinquedos ou para algo como personagens do mundo ou animais.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <main class="bloco-vitrine estilo-escuro">
+        <div class="sobre-container">
+            <article class="sobre-texto">
+                <div class="explicacao-conteudo borda-verde">
+                    <span class="subtitulo-marca">Mina dos cachorros</span>
+                    <h2>mina dos cachorros</h2>
+                    <p class="paragrafo-historia">
+                      Se você ama seu animal, então a empresa foi criada a partir da personagem Risa Kanzaki, de Gokinjo Monogatari. O bloco brings o objetivo de agradar mães e pais de pets com estilo e carinho.
+                    </p>
+                    <p class="paragrafo-historia">
+                        A empresa utiliza tons mais suaves para combinar com a delicadeza e a fofura dos animais, mostrando um lado mais tranquilo inspirado na Risa.
+                    </p>
+                </div>
+            </article>
+            <div class="sobre-imagem-wrapper">
+                <div class="container-parallax paralax4">
+                    <div class="camada-imagem imagem-frente"></div>
+                    <div class="camada-imagem imagem-fundo"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/pagina-inicial.js"></script>
+    <script src="js/sw-register.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>Fashion Loading</title>
+    <link rel="manifest" href="../manifest.webmanifest">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        video {
+            width: 100vw;
+            height: 100vh; /* Ajustado para 100vh para cobrir a altura total da tela */
+            object-fit: cover; /* Mantém a proporção correta e preenche o espaço sem esticar */
+            position: center;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay  playsinline>
+        <source src="img/Para a menian fofa/menina de branco fofa.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+    </video>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = "ecommerce.html";
+        }, 8000); // Redireciona após 8 segundos
+    </script>
+
+</body>
+</html>

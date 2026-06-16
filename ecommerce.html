@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#edff8a">
+    <title>E-commerce Lookbook</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="search-bar">
+            <div class="search-input-wrapper">
+                <input type="search" id="inputBusca" placeholder="O que está buscando hoje?" aria-label="Busca">
+                <button type="button" id="btnLimpar" class="clear-btn" aria-label="Limpar busca">&times;</button>
+            </div>
+            <button type="button" id="btnBusca" class="search-btn">
+                <span class="icon-lupa"></span>
+                <span class="text-buscar">buscar</span>
+            </button>
+        </div>
+
+        <div class="logo-container">
+            <img class="logo-img" src="img/bolapromax.png" data-dark="img/bolapromax-dark.png" alt="Logo">
+        </div>
+
+        <nav class="main-nav">
+            
+            <div class="dropdown-localizacao">
+                <button class="btn-icon-nav-circle" aria-label="Localização">
+                    <img src="img/Mapadepersonagens.png" alt="Ícone Localização">
+                </button>
+                <div class="dropdown-content">
+                    <a href="pagina-inicial.html" class="bola-link" title="Personagem 1">
+                        <img src="img/personagem1.jpg" alt="Personagem 1">
+                    </a>
+                    <a href="#personagem2" class="bola-link" title="Personagem 2">
+                        <img src="Contornar e pintar objeto de amarelo/2.png" alt="Personagem 2">
+                    </a>
+                    <a href="#personagem3" class="bola-link" title="Personagem 3">
+                        <img src="Contornar e pintar objeto de amarelo/3.png" alt="Personagem 3">
+                    </a>
+                    <a href="#personagem4" class="bola-link" title="Personagem 4">
+                        <img src="Contornar e pintar objeto de amarelo/4.png" alt="Personagem 4">
+                    </a>
+                    <a href="#personagem5" class="bola-link" title="Personagem 1"5>
+                        <img src="Contornar e pintar objeto de amarelo/1.png" alt="Personagem 5">
+                    </a>
+                </div>
+            </div>
+
+            <a href="https://www.instagram.com/SEU_USUARIO/" target="_blank" rel="noopener noreferrer">
+                <img src="img/insta (2).png" alt="Nosso Instagram" style="width: 45px; height: 45px;">
+            </a>  
+
+            <button class="botaomenu" id="btnAbrirMenu">
+                <img src="img/menu.png" alt="Menu">
+            </button>
+        </nav>
+    </header>
+
+    <div id="menuLateral" class="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button id="btnFecharMenu" class="close-sidebar">&times;</button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#roupas">Roupas</a></li>
+            <li><a href="#testando">as melhores </a></li>
+            <li><a href="#conjuntos">Conjuntos</a></li>
+            <li><a href="#novidades">Novidades</a></li>
+            <li><a href="#pulseiras">Pulseiras</a></li>
+        </ul>
+    </div>
+    <div id="overlayMenu" class="menu-overlay"></div>
+
+    <section class="top-slider-banner">
+        <div class="slider-track">
+            <div class="slider-slide">
+                <img src="img/Roupas.png" data-dark="img/Roupas-dark.png" alt="Coleção de Verão Exclusiva">
+            </div>
+            <div class="slider-slide">
+                <img src="img/Pulseirona.png" data-dark="img/Pulseirona-dark.png" alt="Nova Linha Premium">
+            </div>
+            <div class="slider-slide">
+                <img src="img/Pulseiras.png" data-dark="img/Pulseiras-dark.png" alt="Nova Linha Premium">
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        
+        <section id="roupas" class="hero-section">
+            <h1 class="section-title">Roupas</h1>
+            
+            <section class="premium-fusion-wrapper">
+                <div class="vertical-lookbook-banner">
+                    <img src="Contornar e pintar objeto de amarelo/cartaz promo.png" alt="Lookbook Premium">
+                    <div class="vertical-banner-overlay">
+                        <span class="brand-badge"> Happy Berry </span>
+                        <h2>SHOP NOW</h2>
+                    </div>
+                </div>
+
+                <div class="fusion-carousel-zone">
+                    <button class="custom-carousel-arrow prev" data-carousel="roupas" aria-label="Anterior">
+                        <img src="img/arrow.png" alt="Anterior">
+                    </button>
+                    
+                    <div class="fusion-carousel-container">
+                        <div class="fusion-carousel-track" id="track-roupas">
+                            <div class="product-card" data-id="1">
+                                <div class="product-image-wrapper">
+                                    <img src="Contornar e pintar objeto de amarelo/dinossauroverde.png" alt="Produto 1">
+                                    <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-brand">Individual</span>
+                                    <h4 class="product-name">Camisa Slim Fit Lisa</h4>
+                                    <p class="product-price">R$ 497,50</p>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-id="2">
+                                <div class="product-image-wrapper">
+                                    <img src="Contornar e pintar objeto de amarelo/boxinhos.png" alt="Produto 2">
+                                    <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-brand">John John</span>
+                                    <h4 class="product-name">Calça Sarja Modern</h4>
+                                    <p class="product-price">R$ 689,00</p>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-id="3">
+                                <div class="product-image-wrapper">
+                                    <img src="Contornar e pintar objeto de amarelo/croped.png" alt="Produto 3">
+                                    <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-brand">Individual</span>
+                                    <h4 class="product-name">Bermuda Jeans Comfort</h4>
+                                    <p class="product-price">R$ 342,00</p>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-id="4">
+                                <div class="product-image-wrapper">
+                                    <img src="Contornar e pintar objeto de amarelo/Conjuntos.png" alt="Produto 4">
+                                    <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-brand">Skunk</span>
+                                    <h4 class="product-name">Conjunto Bicolor Modern</h4>
+                                    <p class="product-price">R$ 2.872,50</p>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-id="5">
+                                <div class="product-image-wrapper">
+                                    <img src="Contornar e pintar objeto de amarelo/henlyrosa.png" alt="Produto 5">
+                                    <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-brand">Skunk</span>
+                                    <h4 class="product-name">Vestido Alfaiataria Chic</h4>
+                                    <p class="product-price">R$ 1.450,00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="custom-carousel-arrow next" data-carousel="roupas" aria-label="Próximo">
+                        <img src="img/arrow.png" alt="Próximo">
+                    </button>
+                </div>
+            </section>
+        </section>
+
+        <section id="testando" class="wishlist-section">
+            <h1 class="section-title">Para as melhores</h1>
+            <div class="wishlist-grid">
+                <div class="product-card" data-id="6">
+                    <div class="product-image-wrapper">
+                        <img src="Contornar e pintar objeto de amarelo/mlaha curtahenly.png" alt="Wishlist Item 1">
+                        <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Lookbook</span>
+                        <h4 class="product-name">Blusa Soft Minimalist</h4>
+                        <p class="product-price">R$ 289,00</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="7">
+                    <div class="product-image-wrapper">
+                        <img src="Contornar e pintar objeto de amarelo/vermelhohenly.png" alt="Wishlist Item 2">
+                        <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Lookbook</span>
+                        <h4 class="product-name">Saia Midi Pregas</h4>
+                        <p class="product-price">R$ 412,00</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="8">
+                    <div class="product-image-wrapper">
+                        <img src="img/marromcropd.png" alt="Wishlist Item 3">
+                        <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Premium</span>
+                        <h4 class="product-name">Casaco Overcoat Concept</h4>
+                        <p class="product-price">R$ 950,00</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="9">
+                    <div class="product-image-wrapper">
+                        <img src="Contornar e pintar objeto de amarelo/finalmente.png" alt="Wishlist Item 4">
+                        <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Skunk</span>
+                        <h4 class="product-name">Calça Pantalona Crepe</h4>
+                        <p class="product-price">R$ 580,00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="editorial-banner-section">
+            <div class="editorial-container">
+                <div class="editorial-video-box">
+                    <video autoplay loop muted playsinline src="videos/download.mp4"></video>
+                </div>
+                <div class="editorial-text-box">
+                    <span class="editorial-subtitle">Coleção Exclusiva</span>
+                    <h2 class="editorial-title">Estilo Sofisticado</h2>
+                    <p class="editorial-description">
+                        Descubra a fusão perfeita entre conforto moderno e cortes clássicos de alfaiataria criados para elevar seu guarda-roupa diário com distinção e presença.
+                    </p>
+                    <a href="#" class="editorial-link">Explorar Coleção</a>
+                </div>
+            </div>
+        </section>
+
+        <h1 class="section-title">Conjuntos</h1>
+        <section id="conjuntos" class="showcase-carousel">
+            <button class="custom-carousel-arrow prev" data-carousel="conjuntos" aria-label="Anterior">
+                <img src="img/arrow.png" alt="Anterior">
+            </button>
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="track-conjuntos">
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/rosa.png" alt="Conjunto 1">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Lookbook</span>
+                            <h4 class="product-name">Blusa Soft Minimalist</h4>
+                            <p class="product-price">R$ 289,00</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/modelo.png" alt="Conjunto 2">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Lookbook</span>
+                            <h4 class="product-name">Saia Midi Pregas</h4>
+                            <p class="product-price">R$ 412,00</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/allblack.png" alt="Conjunto 3">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Premium</span>
+                            <h4 class="product-name">Casaco Overcoat Concept</h4>
+                            <p class="product-price">R$ 950,00</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/fofos.png" alt="Conjunto 4">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Skunk</span>
+                            <h4 class="product-name">Calça Pantalona Crepe</h4>
+                            <p class="product-price">R$ 580,00</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/conjuntos maneiros.png" alt="Conjunto 5">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Skunk</span>
+                            <h4 class="product-name">Conjunto Casual Premium</h4>
+                            <p class="product-price">R$ 620,00</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/3paraquedas.png" alt="Conjunto 6">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Lookbook</span>
+                            <h4 class="product-name">Conjunto Inverno Soft</h4>
+                            <p class="product-price">R$ 790,00</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/Conjuntos.png" alt="Conjunto 7">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Premium</span>
+                            <h4 class="product-name">Conjunto Alfaiataria Luxo</h4>
+                            <p class="product-price">R$ 1.150,00</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/vermelho.png" alt="Conjunto 8">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Skunk</span>
+                            <h4 class="product-name">Conjunto Urban Street</h4>
+                            <p class="product-price">R$ 490,00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="custom-carousel-arrow next" data-carousel="conjuntos" aria-label="Próximo">
+                <img src="img/arrow.png" alt="Próximo">
+            </button>
+        </section>
+
+        <section class="video-grid">
+            <div class="video-card">
+                <video autoplay loop muted playsinline src=""></video>
+                <div class="card-overlay">
+                    <h2>Camisas</h2>
+                </div>
+            </div>
+            <div class="video-card">
+                <video autoplay loop muted playsinline src="videos/Conjuntos.mp4"></video>
+                <div class="card-overlay">
+                    <h2>CONJUNTOS</h2>
+                </div>
+            </div>
+            <div class="video-card">
+                <video autoplay loop muted playsinline src="videos/Pulseira azul.mp4"></video>
+                <div class="card-overlay">
+                    <h2>Pulseiras</h2>
+                </div>
+            </div>
+        </section>
+
+        <h1 class="section-title">Mais Vendidos</h1>
+        <section class="image-split">
+            <a href="#link-camisas" class="image-card">
+                <img src="Contornar e pintar objeto de amarelo/dinossauroverde.png" alt="Coleção Camisas">
+                <div class="image-overlay">
+                    <h2>CAMISAS</h2>
+                    <button class="shop-now">COMPRAR AGORA</button>
+                </div>
+            </a>
+            <a href="#link-pulseiras" class="image-card">
+                <img src="Contornar e pintar objeto de amarelo/foto da pulseira.png" alt="Coleção Pulseiras">
+                <div class="image-overlay">
+                    <h2>PULSEIRAS</h2>
+                    <button class="shop-now">COMPRAR AGORA</button>
+                </div>
+            </a>
+        </section>
+
+        <h1 class="section-title">Novidades</h1>
+        <section id="novidades" class="showcase-carousel">
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="track-novidades">
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/Negos.png" alt="Produto 1">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Individual</span>
+                            <h4 class="product-name">Camisa Slim Fit Lisa</h4>
+                            <p class="product-price">R$ 497,50</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/coloridinhas.png" alt="Produto 2">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">John John</span>
+                            <h4 class="product-name">Calça Sarja Modern</h4>
+                            <p class="product-price">R$ 689,00</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/miçangas.png" alt="Produto 3">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Individual</span>
+                            <h4 class="product-name">Bermuda Jeans Comfort</h4>
+                            <p class="product-price">R$ 342,00</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="img/Brasil.png" alt="Produto 4">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Skunk</span>
+                            <h4 class="product-name">Conjunto Bicolor Modern</h4>
+                            <p class="product-price">R$ 2.872,50</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="custom-carousel-arrow next" data-carousel="novidades" aria-label="Próximo">
+                <img src="img/arrow.png" alt="Próximo">
+            </button>
+        </section>
+
+        <h1 class="section-title">Pulseiras</h1>
+        <section id="pulseiras" class="showcase-carousel-fixed">
+            
+            <div class="carousel-container">
+                <div class="carousel-track-fixed">
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/foto da pulseira.png" alt="Pulseira 1">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Happy Berry</span>
+                            <h4 class="product-name">Pulseira Gold Elegant</h4>
+                            <p class="product-price">R$ 89,90</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/pulseira acoiris.png" alt="Pulseira 2">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Happy Berry</span>
+                            <h4 class="product-name">Pulseira Silver Shine</h4>
+                            <p class="product-price">R$ 79,90</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/Pulseirinha.png" alt="Pulseira 3">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Premium</span>
+                            <h4 class="product-name">Pulseira Leather Black</h4>
+                            <p class="product-price">R$ 119,90</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="default">
+                        <div class="product-image-wrapper">
+                            <img src="Contornar e pintar objeto de amarelo/flor.png" alt="Pulseira 4">
+                            <button class="add-to-bag">ADICIONAR À SACOLA</button>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Premium</span>
+                            <h4 class="product-name">Pulseira Stone Minimalist</h4>
+                            <p class="product-price">R$ 95,00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-wrapper-main">
+            <button class="close-modal" id="btnFecharModalUnificado">&times;</button>
+            <section class="container-fotos">
+                <div class="miniaturas" id="modalMiniaturas"></div>
+
+                <div class="foto-principal" id="area-foto">
+                    <img id="imagem-destaque" src="" alt="Produto em Destaque">
+                    <div class="lente" id="lente"></div>
+                </div>
+            </section>
+
+            <div class="janela-zoom" id="caixa-zoom">
+                <img id="imagem-zoom" src="" alt="Zoom">
+            </div>
+
+            <article class="detalhes-produto">
+                <span class="status">Novo | +100 vendidos</span>
+                <h1 class="titulo" id="modalTitulo">Nome do Produto</h1>
+                <p class="estrelinha">4.7 ★★★★☆ (39)</p>
+                <div class="preco" id="modalPreco">R$ 0,00</div>
+                <div class="parcelas">em 12x sem juros</div>
+                <p class="frete">Frete grátis</p>
+                <p>Devolução grátis em 30 dias.</p>
+                
+                <div id="containerTamanhosModal" style="margin-top:15px; display:none;">
+                    <span style="font-size:14px; font-weight:bold; display:block; margin-bottom:5px;">Selecione o Tamanho:</span>
+                    <button type="button" style="padding:6px 12px; cursor:pointer; background:#fff; border:1px solid #ccc; border-radius:4px;">GG</button>
+                    <button type="button" style="padding:6px 12px; cursor:pointer; background:#fff; border:1px solid #ccc; border-radius:4px; margin-left:5px;">Extra GG</button>
+                </div>
+
+                <button class="botao-comprar">Comprar agora</button>
+            </article>
+        </div>
+    </div>
+
+        <script src="assets/js/main.js"></script>
+    <script src="assets/js/sw-register.js"></script>
+</body>
+</html>
+
