@@ -1,0 +1,1388 @@
+/* ==========================================================================
+   0. IMPORTAÇÃO DE FONTES CUSTOMIZADAS
+   ========================================================================== */
+@font-face {
+    font-family: 'Lovelyn';
+    /* Certifique-se de salvar o arquivo da fonte na sua pasta de projeto. 
+       Se estiver em uma pasta chamada "fonts", mude para: url('fonts/Lovelyn.woff2') */
+    src: url('Lovelyn.woff2') format('woff2'),
+         url('Lovelyn.woff') format('woff'),
+         url('Lovelyn.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==========================================================================
+   1. RESET BÁSICO E CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #facfde; /* 🎨 Rosa claro (LavenderBlush) */
+    color: #48f096; /* 🎨 Texto em Verde Escuro */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Regras de transição global para suporte ao Modo Escuro nativo adaptado à paleta */
+body.dark-mode {
+    background-color: #e60ae6;
+    color: #ffffff;
+}
+
+body.dark-mode .product-card {
+    background: #1e1e1e;
+}
+
+body.dark-mode .product-name,
+body.dark-mode .product-price {
+    color: #ffffff;
+}
+
+body.dark-mode .sidebar-menu {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .sidebar-links li a {
+    color: #eaeaea;
+}
+
+body.dark-mode .editorial-container {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .editorial-title,
+body.dark-mode .editorial-description {
+    color: #ffffff;
+}
+
+body.dark-mode .editorial-link {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+body.dark-mode .mid-banner {
+    background: linear-gradient(90deg, #1e1e1e 0%, #2a2a2a 100%);
+}
+
+body.dark-mode .mid-banner-content h3,
+body.dark-mode .mid-banner-content p {
+    color: #eaeaea;
+}
+
+/* ===== TÍTULOS GLOBAIS COM LINHAS LATERAIS ===== */
+.section-title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 2.4rem; /* Um pouco maior para valorizar os detalhes da Lovelyn */
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 60px 0 30px 0;
+    color: #1A5F3A; /* 🎨 Títulos em Verde */
+    font-family: 'Lovelyn', 'Georgia', serif; /* 👑 Aplicada a fonte Lovelyn para os títulos */
+}
+
+.section-title::before,
+.section-title::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #1A5F3A; /* 🎨 Linhas laterais em Verde */
+    margin: 0 30px;
+}
+
+/* Margens principais do conteúdo */
+.main-content {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* ==========================================================================
+   2. HEADER & ELEMENTOS DE BUSCA
+   ========================================================================== */
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    background: linear-gradient(#edff8a, #ebb5f8);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-container {
+    flex-shrink: 0;
+}
+
+.logo-img {
+    width: 100px;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Barra de Busca Dinâmica */
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 500px;
+    margin: 0 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(26, 95, 58, 0.2);
+    border-radius: 999px;
+    padding: 4px;
+    position: relative;
+    right: 59px;
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 35px 10px 16px;
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    outline: none;
+    color: #1A5F3A; /* 🎨 Texto digitado em verde */
+}
+
+.search-bar input::placeholder {
+    color: #1A5F3A;
+    opacity: 0.6;
+}
+
+.clear-btn {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #1A5F3A;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+}
+
+.search-btn {
+    background: #FFD700; /* 🎨 Botão de Busca em Amarelo */
+    border: none;
+    border-radius: 999px;
+    padding: 10px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 38px;
+    transition: all 0.3s ease;
+    color: #1A5F3A; /* 🎨 Ícone em Verde */
+    flex-shrink: 0;
+}
+
+.search-btn:hover {
+    background: #FFCC00; /* 🎨 Amarelo mais escuro no hover */
+}
+
+.icon-lupa {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #1A5F3A; /* 🎨 Lupa em Verde */
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+}
+
+.icon-lupa::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 6px;
+    background: #1A5F3A; /* 🎨 Cabo da lupa em Verde */
+    transform: rotate(-45deg);
+    top: 10px;
+    left: 11px;
+}
+
+.text-buscar {
+    display: none;
+    font-size: 0.95rem;
+    font-weight: bold;
+    padding: 0 10px;
+    text-transform: lowercase;
+}
+
+/* Classes de gatilho manipuladas via JS */
+.search-bar.has-text .icon-lupa {
+    display: none;
+}
+
+.search-bar.has-text .text-buscar {
+    display: inline-block;
+}
+
+.search-bar.has-text .search-btn {
+    padding: 10px 24px;
+}
+
+
+/* ==========================================================================
+   3. MENU DE NAVEGAÇÃO SUPERIOR (MAIN NAV - BOTÕES DE ÍCONE)
+   ========================================================================== */
+.main-nav {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 15px;
+}
+
+.btn-icon-nav, 
+nav .botaomenu {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 0%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), background 0.25s ease, border-color 0.25s ease;
+    padding: 0;
+    text-decoration: none;
+}
+
+.btn-icon-nav-circle {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), background 0.25s ease, border-color 0.25s ease;
+    padding: 0;
+}
+
+.btn-icon-nav img, 
+.btn-icon-nav-circle img,
+nav .botaomenu img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.btn-icon-nav:hover, 
+.btn-icon-nav-circle:hover,
+nav .botaomenu:hover {
+    background: #FF1493; /* 🎨 Rosa profundo no hover */
+    border-color: #FFD700; /* 🎨 Borda amarela no hover */
+    transform: scale(1.08);
+}
+
+.btn-icon-nav:hover img, 
+.btn-icon-nav-circle:hover img,
+nav .botaomenu:hover img {
+    transform: scale(1.1);
+}
+
+
+/* ==========================================================================
+   4. SISTEMA DROPDOWN DE LOCALIZAÇÃO
+   ========================================================================== */
+.dropdown-localizacao {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(255, 105, 180, 0.96); /* 🎨 Casulo em Rosa Combinando */
+    width: 70px; 
+    padding: 14px 0;
+    border-radius: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                visibility 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1100;
+    margin-top: 6px;
+}
+
+.dropdown-localizacao:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.bola-link {
+    width: 50px;  
+    height: 50px; 
+    border: 2px solid #FFD700; /* 🎨 Contorno em Amarelo */
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.2s ease;
+}
+
+.bola-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.bola-link:hover {
+    transform: scale(1.15);
+    border-color: #FFCC00; /* 🎨 Ajuste do Amarelo ao passar mouse */
+}
+
+
+/* ==========================================================================
+   5. MENU LATERAL RETRÁTIL (SIDEBAR) & OVERLAY
+   ========================================================================== */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    height: 100%;
+    background-color: #FFE4E1; /* 🎨 Rosa Suave (MistyRose) */
+    z-index: 2000;
+    box-shadow: -8px 0 24px rgba(0,0,0,0.08);
+    transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.sidebar-menu.active {
+    right: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #FFB6C1;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.sidebar-header h3 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1A5F3A; /* 🎨 Texto em Verde */
+}
+
+.close-sidebar {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #1A5F3A;
+    opacity: 0.6;
+    line-height: 1;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.close-sidebar:hover {
+    opacity: 1;
+    color: #FF1493;
+}
+
+.sidebar-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-links li a {
+    font-size: 1.1rem;
+    color: #1A5F3A; /* 🎨 Links em Verde */
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s, padding-left 0.2s;
+    display: block;
+    padding: 5px 0;
+}
+
+.sidebar-links li a:hover {
+    color: #FF69B4; /* 🎨 Destaque rosa ao passar o mouse */
+    padding-left: 6px;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 105, 180, 0.2); /* 🎨 Overlay com leve tom rosa */
+    backdrop-filter: blur(2px);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ==========================================================================
+   6. SLIDER DE DESTAQUE SUPERIOR (MAIN BANNER)
+   ========================================================================== */
+.top-slider-banner {
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+    position: relative;
+    cursor: grab;
+    background-color: #FFF0F5;
+}
+
+.top-slider-banner:active {
+    cursor: grabbing;
+}
+
+.slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.slider-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* ==========================================================================
+   7. MODELAGEM DOS CARDS DE PRODUTOS E BOTÕES DE COMPRA
+   ========================================================================== */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    background: #FFF5F8; /* 🎨 Fundo do Card em Rosa muito suave */
+    position: relative;
+    border-radius: 8px;
+    padding: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    border-radius: 6px;
+    background-color: #FFE4E1;
+}
+
+.product-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.product-card:hover .product-image-wrapper img {
+    transform: scale(1.02);
+}
+
+/* 🛍️ BOTÃO ADICIONAR À SACOLA - Ajustado com fonte moderna e limpa sans-serif */
+.product-image-wrapper .add-to-bag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 215, 0, 0.95); /* 🎨 Botão em Amarelo */
+    color: #1A5F3A; /* 🎨 Texto em Verde */
+    border: none;
+    padding: 16px 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+    cursor: pointer;
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), background 0.2s;
+    z-index: 5;
+    font-family: 'Arial', 'Helvetica', sans-serif; /* 🎯 Contraste sem serifa super limpo */
+    text-transform: uppercase;
+}
+
+.product-image-wrapper .add-to-bag:hover {
+    background: #FFCC00;
+}
+
+.product-card:hover .add-to-bag {
+    transform: translateY(0);
+}
+
+/* Mostra o botão apenas ao passar o mouse sobre a imagem */
+.wishlist-section .product-card .add-to-bag {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.wishlist-section .product-card:hover .add-to-bag {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wishlist-section .product-card .product-image-wrapper {
+    overflow: hidden;
+}
+
+.wishlist-section .product-card .product-image-wrapper img {
+    transition: transform 0.4s ease;
+}
+
+.wishlist-section .product-card:hover .product-image-wrapper img {
+    transform: scale(1.03);
+}
+
+.product-info {
+    padding: 15px 0;
+    text-align: left;
+}
+
+.product-brand {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #1A5F3A;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.product-name {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #1A5F3A; /* 🎨 Nome em Verde */
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.3s ease;
+}
+
+.product-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1A5F3A; /* 🎨 Preço em Verde */
+    transition: color 0.3s ease;
+}
+
+/* 🏹 AS SETAS AGORA: Base Verde Escuro bem elegante */
+.custom-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: #1A5F3A; /* 🎨 Fundo da seta em Verde Escuro */
+    border: 1px solid #1A5F3A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: 0;
+}
+
+/* ✨ HOVER DA SETA: Transiciona para o Rosa Vibrante/Chiclete */
+.custom-carousel-arrow:hover {
+    background: #FF69B4; /* 🎨 Muda para Rosa Intenso ao passar o mouse */
+    border-color: #FF69B4;
+    transform: translateY(-50%) scale(1.08); /* Leve pulinho de feedback */
+}
+
+/* 🔄 O SEGREDO: Inverte a imagem da seta da esquerda automaticamente */
+.custom-carousel-arrow.prev img {
+    transform: scaleX(-1); /* 🪄 Espelha a imagem para apontar para a esquerda (<-) */
+}
+
+/* Estilo do ícone dentro da seta */
+.custom-carousel-arrow img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Deixa a imagem interna branca para dar contraste */
+}
+
+.custom-carousel-arrow.prev { left: 15px; }
+.custom-carousel-arrow.next { right: 15px; }
+
+/* Oculta o botão direito somente na seção Novidades */
+#novidades .custom-carousel-arrow.next {
+    display: none;
+}
+
+
+/* ==========================================================================
+   8. COMPONENTE: FUSÃO PREMIUM (SEÇÃO ROUPAS)
+   ========================================================================== */
+.premium-fusion-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1600px;
+    margin: 20px auto 60px auto;
+    padding: 0 20px;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.vertical-lookbook-banner {
+    flex: 0 0 340px;
+    position: relative;
+    overflow: hidden;
+    background: #FFE4E1;
+    border-radius: 2px;
+    height: 520px;
+}
+
+.vertical-lookbook-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.vertical-lookbook-banner:hover img {
+    transform: scale(1.03);
+}
+
+.vertical-banner {
+    position: relative; 
+    border-radius: 0 40px 40px 0; 
+    overflow: hidden; 
+}
+
+.vertical-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(26, 95, 58, 0.4) 0%, rgba(0,0,0,0) 60%); /* 🎨 Gradiente puxando pro Verde Escuro */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    color: #fff;
+    border-radius: 0 40px 40px 0; 
+}
+
+.vertical-banner-overlay .brand-badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+    color: #FFD700; /* 🎨 Badge em Amarelo para destacar no fundo */
+}
+
+.vertical-banner-overlay h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    font-family: 'Lovelyn', 'Georgia', serif; /* 👑 Aplicada a fonte Lovelyn */
+}
+
+.fusion-carousel-zone {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.fusion-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.fusion-carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+}
+
+.fusion-carousel-track .product-card {
+    flex: 0 0 calc(33.333% - 14px);
+}
+
+/* Ajuste das setas na Fusão Premium acompanhando o novo estilo */
+.fusion-carousel-zone .custom-carousel-arrow.prev { left: 8px; }
+.fusion-carousel-zone .custom-carousel-arrow.next { right: 8px; }
+
+
+/* ==========================================================================
+   9. SEÇÃO: TESTANDO (WISHLIST FOTO GRID QUADRADA)
+   ========================================================================== */
+.wishlist-section {
+    max-width: 1600px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+}
+
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+/* ==========================================================================
+   10. SEÇÃO EDITORIAL
+   ========================================================================== */
+.editorial-banner-section {
+    width: 100%;
+    max-width: 1600px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.editorial-container {
+    display: flex;
+    align-items: center;
+    background-color: #FFE4E1; /* 🎨 Caixa Editorial em Rosa Suave */
+    border-radius: 12px;
+    overflow: hidden;
+    gap: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.editorial-video-box {
+    flex: 1;
+    height: 500px;
+    background-color: #000;
+}
+
+.editorial-video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.editorial-text-box {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.editorial-subtitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1A5F3A;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.editorial-title {
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1A5F3A; /* 🎨 Título em Verde */
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+    font-family: 'Lovelyn', 'Georgia', serif; /* 👑 Aplicada a fonte Lovelyn */
+}
+
+.editorial-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #1A5F3A; /* 🎨 Descrição em Verde */
+    margin-bottom: 30px;
+    max-width: 500px;
+    transition: color 0.3s ease;
+}
+
+.editorial-link {
+    align-self: flex-start;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1A5F3A;
+    text-decoration: none;
+    border-bottom: 2px solid #1A5F3A;
+    padding-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.editorial-link:hover {
+    color: #FF69B4; /* 🎨 Link muda para Rosa no hover */
+    border-color: #FF69B4;
+}
+
+
+/* ==========================================================================
+   11. SEÇÃO: VITRINES EM CARROSSEL ABERTO
+   ========================================================================== */
+.showcase-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto 80px auto;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+}
+
+.showcase-carousel .product-card {
+    flex: 0 0 calc(25% - 15px);
+}
+
+.showcase-carousel .custom-carousel-arrow.prev { left: 10px; }
+.showcase-carousel .custom-carousel-arrow.next { right: 10px; }
+
+
+/* ===== GRADE ESTÁTICA PARA AS 4 PULSEIRAS ===== */
+.showcase-carousel-fixed {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto 80px auto;
+    padding: 0 60px;
+}
+
+.carousel-track-fixed {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+
+/* ==========================================================================
+   12. SEÇÃO: VIDEOS GRID INFLEXÍVEL (3 COLUNAS)
+   ========================================================================== */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 105, 180, 0.2), rgba(255, 215, 0, 0.3)); /* 🎨 Fusão Translúcida Rosa/Amarelo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.card-overlay h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px rgba(26, 95, 58, 0.5);
+    font-family: 'Lovelyn', 'Georgia', serif; /* 👑 Aplicada a fonte Lovelyn */
+}
+
+
+/* ==========================================================================
+   13. SEÇÃO: MAIS VENDIDOS (BLOCO DE IMAGEM DIVIDIDA - 2 COLUNAS)
+   ========================================================================== */
+.image-split {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 60px;
+    transition: background 0.3s ease;
+}
+
+.image-overlay h2 {
+    color: #ffffff;
+    font-size: 4rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 12px rgba(26, 95, 58, 0.6);
+    font-family: 'Lovelyn', 'Georgia', serif; /* 👑 Aplicada a fonte Lovelyn */
+}
+
+.image-overlay .shop-now {
+    background-color: #FFD700; /* 🎨 Botão em Amarelo */
+    color: #1A5F3A; /* 🎨 Texto em Verde */
+    border: none;
+    padding: 12px 35px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-radius: 4px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.image-card:hover img {
+    transform: scale(1.03);
+}
+
+.image-card:hover .image-overlay {
+    background: rgba(255, 105, 180, 0.15);
+}
+
+.image-overlay .shop-now:hover {
+    background-color: #FFCC00;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================================
+   14. MID BANNER INFORMATIVO
+   ========================================================================== */
+.mid-banner {
+    width: 100%;
+    height: 200px;
+    margin: 40px 0;
+    background: linear-gradient(90deg, #FFE4E1 0%, #FFF0F5 100%); /* 🎨 Transição entre os Rosas Suaves */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: background 0.3s ease;
+}
+
+.mid-banner-content {
+    text-align: center;
+    color: #1A5F3A;
+}
+
+.mid-banner-content h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.mid-banner-content p {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #1A5F3A;
+    opacity: 0.8;
+}
+
+
+/* ==========================================================================
+   15. MEDIA QUERIES (ESTRUTURA DE RESPONSIVIDADE COMPLETA)
+   ========================================================================== */
+@media only screen and (min-device-width: 768px) and (max-device-width: 768px) {
+    .category { gap: 35px; }    
+}
+
+@media (max-width: 1200px) {
+    .fusion-carousel-track .product-card { 
+        flex: 0 0 calc(50% - 10px); 
+    }
+    .showcase-carousel .product-card { 
+        flex: 0 0 calc(33.333% - 14px); 
+    }
+    .carousel-track-fixed {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .wishlist-grid { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media (max-width: 900px) {
+    .premium-fusion-wrapper { 
+        flex-direction: column; 
+    }
+    .vertical-lookbook-banner { 
+        flex: 0 0 220px; 
+        width: 100%; 
+    }
+    .wishlist-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .editorial-container { 
+        flex-direction: column; 
+        gap: 0; 
+    }
+    .editorial-video-box { 
+        width: 100%; 
+        height: 350px; 
+    }
+    .editorial-text-box { 
+        padding: 30px 20px; 
+        text-align: center; 
+        align-items: center; 
+    }
+    .editorial-link { 
+        align-self: center; 
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 12px 16px;
+    }
+    .search-bar {
+        margin: 0 15px;
+        right: 0;
+    }
+    .image-split { 
+        grid-template-columns: 1fr; 
+        height: auto; 
+    }
+    .image-card { 
+        height: 60vh; 
+    }
+    .image-overlay h2 { 
+        font-size: 2.5rem; 
+    }
+    .showcase-carousel { 
+        padding: 0 40px; 
+    }
+    .showcase-carousel .product-card { 
+        flex: 0 0 calc(50% - 10px); 
+    }
+    .carousel-track-fixed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .product-image-wrapper .add-to-bag { 
+        transform: translateY(0); 
+        padding: 10px 0; 
+        font-size: 0.75rem; 
+    }
+}
+
+@media (max-width: 600px) {
+    .fusion-carousel-track .product-card { 
+        flex: 0 0 100%; 
+    }
+    .showcase-carousel .product-card { 
+        flex: 0 0 100%; 
+    }
+    .carousel-track-fixed {
+        grid-template-columns: 1fr;
+    }
+    .wishlist-grid { 
+        grid-template-columns: 1fr; 
+    }
+}
+
+
+/* ==========================================================================
+   16. CONTROLE E ESTILIZAÇÃO DO MODAL INTEGRADO
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 95, 58, 0.4); /* 🎨 Sombra sutil em tom Verde */
+    z-index: 3000;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal-wrapper-main {
+    max-width: 1180px;
+    background: #FFD1DC; /* 🎨 Corpo do Modal em Rosa Pastel Perfeito */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 95%;
+    height: auto;
+    min-height: 600px;
+    display: flex;
+    gap: 40px;
+    position: relative;
+    color: #1A5F3A !important; /* 🎨 Força todos os textos internos para Verde */
+}
+
+/* ESQUERDA */
+.container-fotos {
+    display: flex;
+    flex: 1.5;
+    gap: 16px;
+}
+
+/* MINIATURAS */
+.miniaturas {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 102px;
+}
+
+.miniaturas img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #FFB6C1;
+    border-radius: 4px;
+    cursor: pointer;
+    object-fit: cover;
+    transition: .2s;
+}
+
+.miniaturas img:hover,
+.miniaturas img.ativa {
+    border: 2px solid #FFD700; /* 🎨 Borda amarela na miniatura activa */
+    transform: scale(1.03);
+}
+
+/* FOTO PRINCIPAL */
+.foto-principal {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    cursor: crosshair;
+    border: 1px solid #FFB6C1;
+    border-radius: 6px;
+    background: #FFF0F5; /* 🎨 Caixa Interna em Rosa Claro */
+}
+
+.foto-principal img {
+    object-fit: contain;
+    height: 500px;
+    width: 100%;
+    transition: .2s;
+}
+
+/* LENTE DO ZOOM */
+.lente {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 2px solid rgba(255, 215, 0, 0.9); /* 🎨 Contorno da Lente em Amarelo */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+    display: none;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 5;
+}
+
+/* CAIXA DE ZOOM */
+.janela-zoom {
+    position: absolute;
+    top: 25px;
+    left: 680px;
+    width: 460px;
+    height: 500px;
+    background: #FFF0F5; /* 🎨 Janela em Rosa Claro */
+    border: 1px solid #FFB6C1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 3010;
+    overflow: hidden;
+    display: none;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.janela-zoom img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(2.5);
+    transform-origin: top left;
+}
+
+/* DIREITA */
+.detalhes-produto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid #FFB6C1;
+    border-radius: 8px;
+    background: #FFF0F5; /* 🎨 Caixa de Detalhes em Rosa Claro */
+}
+
+.status { font-size: 12px; color: #1A5F3A !important; opacity: 0.7; }
+.titulo { 
+    font-size: 24px; 
+    font-weight: 400; 
+    color: #1A5F3A !important; 
+    line-height: 1.18;
+    font-family: 'Lovelyn', 'Georgia', serif; /* 👑 Também aplicado no título interno do modal */
+}
+.estrelinha { color: #FFD700; } /* 🎨 Estrelinhas de avaliação em Amarelo */
+.preco { font-size: 36px; font-weight: 300; color: #1A5F3A !important; margin-top: 8px; }
+.parcelas { font-size: 14px; color: #1A5F3A !important; opacity: 0.9; }
+.frete { font-size: 14px; color: #1A5F3A !important; font-weight: 600; margin-top: 10px; text-decoration: underline; }
+
+.botao-comprar {
+    background: #FFD700; /* 🎨 Botão Principal de Compra do Modal em Amarelo */
+    color: #1A5F3A !important; /* 🎨 Texto em Verde */
+    border: 2px solid #FFCC00;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: .2s;
+}
+.botao-comprar:hover { 
+    background: #FFCC00; 
+    transform: scale(1.02);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1A5F3A !important; /* 🎨 Botão X do Modal em Verde */
+    transition: .2s;
+    line-height: 1;
+    z-index: 10;
+}
+.close-modal:hover { transform: scale(1.1); color: #FF69B4 !important; }

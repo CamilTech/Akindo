@@ -1,0 +1,241 @@
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url("../img/Fundo_Login.png");
+            background-repeat: repeat;
+        }
+
+        /* Container Principal (Split-Screen) */
+        .login-container {
+            display: flex;
+            width: 900px;
+            height: 550px;
+            background-color: #24202E;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(106, 27, 154, 0.15);
+            overflow: hidden;
+        }
+
+        /* LADO ESQUERDO: Container do Carrossel */
+        .left-side {
+            width: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        /* Texto de boas-vindas por cima do carrossel */
+        .welcome-text {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            color: #F4C542;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+            letter-spacing: 2px;
+        }
+
+        /* Indicadores (Bolinhas do Carrossel) */
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transition: background-color 0.3s, width 0.3s;
+        }
+
+        .dot.active {
+            background-color: #F4C542; /* Amarelo Vibrante para a bolinha ativa */
+            width: 20px;
+            border-radius: 4px;
+        }
+
+        /* LADO DIREITO: Formulário de Login */
+        .right-side {
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-form {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .login-form h2 {
+            font-size: 2rem;
+            color: #F4C542; /* Roxo Escuro */
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            
+            color: white;
+            width: 100%;
+            padding: 10px 0px 10px 10px;
+            border: none;
+            border-bottom: 1px solid #24202E;
+            outline: none;
+            font-size: 1rem;
+            border-radius: 10px;
+            background-color: #392f53;
+            transition: border-color 0.3s;
+            transition: 0.5s ease;
+        }
+
+        .input-group input:focus {
+            background-color: #d89e0017;
+            border-bottom: 2px solid #F4C542; /* Linha Roxa ao focar */
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            color: #999;
+            pointer-events: none;
+            transition: 0.3s ease all;
+        }
+
+        /* Efeito para subir o label quando o input estiver ativo */
+        .input-group input:focus ~ label,
+        .input-group input:not(:placeholder-shown) ~ label {
+            top: -17px;
+            font-size: 0.8rem;
+            color: #F4C542; /* Texto do Label Roxo */
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            font-size: 0.8rem;
+            color: #F4C542; /* Link Roxo */
+            text-decoration: none;
+            margin-top: -10px;
+            margin-bottom: 25px;
+            transition: color 0.3s;
+        }
+
+        .forgot-password:hover {
+            color: #b38d25;
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #F4C542; /* Botão Roxo */
+            color: black;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #b38d25; /* Botão vira Amarelo no Hover */
+            color: white; /* Texto vira Roxo Escuro no Hover */
+        }
+
+        .signup-text {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 30px;
+        }
+
+        .signup-text a {
+            color: #F4C542; /* Link Roxo */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .signup-text a:hover {
+            color: #b38d25;
+            text-decoration: underline;
+        }
+
+        /* Estilo da mensagem de Feedback da API */
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            text-align: center;
+            display: none;
+            color: #F4C542;
+        }
+        .message.success {
+            display: block;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .message.error {
+            display: block;
+            background-color: #ff6874;
+            color: #721c24;
+            border: 1px solid #ff6874;
+        }
+
+        /* Responsividade para celular */
+        @media (max-width: 768px) {
+            .login-container {
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+                flex-direction: column;
+            }
+            .left-side {
+                display: none;
+            }
+            .right-side {
+                width: 100%;
+                height: 100%;
+            }
+        }
